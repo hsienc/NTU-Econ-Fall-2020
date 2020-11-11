@@ -1,2 +1,2 @@
 # Econ Studynotes
-Randomly upload some econ materials here..
+Randomly upload some econ materials here!
