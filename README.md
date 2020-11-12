@@ -5,8 +5,8 @@
 On this Github repo I upload pieces of materials and study notes of Economics topics that I have read and learned throughout my academic career. Hope you all browse through them joyfully and find them useful. :)
 
 ###### Personal Sites:
-- HsienChen Chu:
+- `HsienChen Chu`:
   https://sites.google.com/view/hsienchenchu/home
-\
-[@hsienc.study](https://www.instagram.com/hsienc.study/)
+
+- `@hsienc.study`: https://www.instagram.com/hsienc.study/
 
