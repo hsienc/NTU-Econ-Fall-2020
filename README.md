@@ -8,5 +8,11 @@ On this Github repo I upload pieces of materials and study notes of Economics to
 - `HsienChen Chu`:
   https://sites.google.com/view/hsienchenchu/home
 
-- `@hsienc.study`: https://www.instagram.com/hsienc.study/
+- `@hsienc.study`:
+  https://www.instagram.com/hsienc.study/
 
+###### Rec:
+- `Overleaf`:  https://www.overleaf.com/
+> A powerful online TeX platform
+
+  
