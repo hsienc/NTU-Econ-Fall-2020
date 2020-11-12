@@ -3,7 +3,7 @@
 ### Greetings!
 
 On this Github repo I upload pieces of study notes and materials of Economics topics that I have read and learned throughout my academic career.  \
-Hope you all browse through them joyfully and find them useful. :)
+Hope you all browse through them joyfully and find them useful! :)
 
 - [x] Stay tuned on [NEW RELEASES](https://github.com/hsienc/Econ/releases) ! 
 
