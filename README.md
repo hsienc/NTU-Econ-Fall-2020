@@ -4,6 +4,10 @@
 
 On this Github repo I upload pieces of materials and study notes of Economics topics that I have read and learned throughout my academic career. Hope you all browse through them joyfully and find them useful. :)
 
+- [x] Stay tuned on [NEW RELEASES](/releases/latest)! https://github.com/hsienc/Econ/releases/latest
+
+
+
 ##### Personal Sites:
 - `HsienChen Chu`:
   https://sites.google.com/view/hsienchenchu/home
