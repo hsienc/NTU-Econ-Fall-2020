@@ -1,0 +1,277 @@
+\documentclass[a4paper,12pt]{article} %[default 8pt]
+\usepackage[utf8]{inputenc}
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry} %set margin 
+
+% The default setting of LaTeX is to indent new paragraphs. This is useful for articles. But not really nice for homework problem sets. The following command sets the indent to 0.
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+%\setlength{\parindent}{0in}%
+\usepackage{array}
+% As we usually want to include some plots (.pdf files) we need a package for that.
+\usepackage{graphicx} 
+\usepackage{amsmath} % to use split function
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+
+% Package to place figures where you want them.
+\usepackage{float}
+\usepackage{forest}
+\usepackage{graphicx}
+\usepackage{tikz-qtree}
+% The fancyhdr package let's us create nice headers.
+\usepackage{fancyhdr}
+% math proof
+\usepackage{amssymb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy} % With this command we can customize the header style.
+
+\fancyhf{} % This makes sure we do not have other information in our header or footer.
+
+\lhead{\footnotesize Statistics with Recitation: Midterm Brief Review}% \lhead puts text in the top left corner. \footnotesize sets our font to a smaller size.
+
+%\rhead works just like \lhead (you can also use \chead)
+\rhead{\footnotesize Hsien-Chen Chu} %<---- Fill in your lastnames.
+
+% Similar commands work for the footer (\lfoot, \cfoot and \rfoot).
+% We want to put our page number in the center.
+\cfoot{\footnotesize \thepage} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\thispagestyle{empty}
+\begin{tabular}{p{15.5cm}} % This is a simple tabular environment to align your text nicely 
+{\large \bf Statistics with Recitation} \\ National Taiwan University \\ Fall 2020 \\ Shiu-Sheng Chen \\ %information about the course and file creator
+\hline % \hline produces horizontal lines.
+\\
+\end{tabular} % Our tabular environment ends here.
+
+\vspace*{0.3cm}
+\begin{center}
+    {\Large \bf Midterm Brief Review} 
+    % <---- Don't forget to put in the right number
+    \\
+    Last Edited: December 05, 2020
+	\vspace{2mm}
+	
+     % NAMES GO HERE
+	{\bf Hsien-Chen Chu T09303304 Econ1} % <---- Fill in your names here!
+\end{center}
+\vspace{0.4cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Up until this point you only have to make minor changes for every week (Number of the homework). Your write up essentially starts here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Literature: S.S.Chen: Probability and Statistical Inference with R, {\bf ch6-10}, 2019. \\
+I'd like to reiterate that this is merely a BRIEF review of midterm contents, so it leaves most of the proofs and inferences for you to revisit the textbook if needed.\\ Important formulas and features are listed sequentially. 
+
+
+\begin{enumerate}
+
+%Normal Distribution
+\item {{\bf Normal Distribution: $\sim N$}
+\begin{enumerate}
+    \item {{\bf Normal:} $$f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} \Rightarrow X \sim N(\mu,\sigma^2)$$
+    }
+    \item {{\bf Standard Normal:} def $z=\frac{x-\mu}{\sigma}$, then: $$\phi(z)=\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z)^2} \Rightarrow  Z \sim N(0,1)$$
+    }
+    \item { Linear Trans.: given $X \sim N(\mu, \sigma^2)$ and $aX+b$, then: $aX+b \sim N(a\mu+b,\  a^2\sigma^2)$
+    }
+    \item {
+    \begin{enumerate}
+        \item {i.i.d sum: $Y=\sum\limits_{i=1}^n X_i \sim N(n\mu,n\sigma^2)$}
+        \item {i.i.d mean: $W=\frac{Y}{n}=\frac{\sum\limits_{i=1}^n X_i}{n} \sim N(\mu,\frac{\sigma^2}{n})$}
+    \end{enumerate}
+    }
+    \item{ \underline{General}:
+    re-def $W=\alpha_1X_1+\alpha_2X_2+\dots+\alpha_nX_n$ $\Rightarrow$ $W \sim N(\sum\limits_{i=1}^n\alpha_i\mu_i,\ \sum\limits_{i=1}^n\alpha_i^2\sigma_i^2)$\\
+    }
+    
+\end{enumerate}
+}
+
+%Chi-Square
+\item {{\bf Chi-square Distribution: $\sim \chi^2$}
+\begin{enumerate}
+    \item { {\bf Chi-square:} $$f(x)=\frac{x^{\frac{k}{2}-1}}{2^\frac{k}{2}\Gamma(\frac{k}{2})}e^{-\frac{1}{2}x} \Rightarrow X \sim \chi^2(k)$$ \\Degrees of freedom: {\bf k}
+    }
+    \item {MGF: $$X_i \sim \chi^2(k) \Rightarrow M_X(t)=(\frac{1}{1-2t})^\frac{k}{2}$$
+        \begin{enumerate}
+            \item $E(X)=k$
+            \item $E(X^2)=k(k+2)$
+            \item $Var(X)=2k$  
+        \end{enumerate}
+    }
+    \item {Chi-square sum: Suppose $X_i \sim \chi^2(k_i)$, then: $$Y=\sum\limits_{i=1}^nX_i \sim \chi^2(\sum\limits_{i=1}^nk_i)$$
+    }
+    \item { {\bf Standard Normal \& Chi-square:} given $Z \sim N(0,1)$, then:
+    $$Z^2 \sim \chi^2(1)$$ 
+    {\bf Lemma} \\$Given\ \{Z_1,Z_2,\dots,Z_n \} \sim^{i.i.d.} N(0,1),\ let\  X=\sum\limits_{i=1}^kZ_i^2,\ then: X \sim \chi^2(k).$\\
+    }
+\end{enumerate}
+}
+
+%Student's t 
+\item {{\bf Student's t Distribution: $\sim t$}
+\begin{enumerate}
+    \item {{\bf Standard Normal, Chi-square \& t:} given $Z \sim N(0,1),\ W \sim \chi^2(k)$, then: $$ X=\frac{Z}{\sqrt{\frac{W}{k}}} \sim t(k) $$ \\Degrees of freedom: {\bf k}
+    }
+    \item {Features: (parameters)$$ t(k)=\frac{N(0,1)}{\sqrt{\frac{\chi^2(k)}{k}}} $$ 
+    \begin{enumerate}
+        \item $E(X)=E(Z\frac{1}{\sqrt{\frac{W}{k}}})=E(Z)E(\frac{1}{\sqrt{\frac{W}{k}}})=0 \times E(\frac{1}{\sqrt{\frac{W}{k}}})=0$
+        \item $Var(X)=\frac{k}{k-2}$, for $k>2$\\
+    \end{enumerate}
+    }
+\end{enumerate}
+}
+
+%F distribution
+\item {{\bf F Distribution: $\sim F$}
+\begin{enumerate}
+    \item {{\bf F:} $$ X \sim F(k_1,k_2) $$\\Degrees of freedom: {\bf $k_1, k_2$}
+    }
+    \item {{\bf Chi-square \& F:} given $X_1 \sim \chi^2(k_1),\ X_2 \sim \chi^2(k_2)$, then: $$ X=\frac{X_1/k_1}{X_2/k_2} \sim F(k_1,k_2) $$ 
+    \underline{Remarks}: F distribution is the ratio of 2 Chi-square distributions, each divided by its own degrees of freedom. And, suppose $Y=\frac{1}{X}$, then: $Y \sim F(k_2,k_1)$ by definition.
+    }
+    \item {{\bf t \& F:} given $X \sim t(k)$, then: $$ X^2 \sim F(1,k) $$ \\
+    }
+\end{enumerate}
+}
+
+%Random Samples
+\item {{\bf Random Samples \& Descriptive Stats:}
+\begin{enumerate}
+    \item {Random Samples: $\{X_i\}_{i=1}^n \sim^{i.i.d.}(\mu, \sigma^2)$
+    }
+    \item {Statistics:
+    \begin{enumerate}
+        \item {Sample mean: $\Bar{X_n}=\frac{\sum\limits_{i=1}^nX_i}{n}$
+        }
+        \item {Sample variance: $S_n^2=\frac{\sum\limits_{i=1}^n(X_i-\Bar{X_n})^2}{n-1}$
+        }
+    \end{enumerate}
+         \item {Suppose $\{X_i\}_{i=1}^n \sim^{i.i.d.}N(\mu, \sigma^2)$, then: 
+        \begin{equation}
+        \left \{
+        \begin{array}{lr} 
+        \Bar{X_n} \sim N(\mu,\frac{\sigma^2}{n}) & \\\\ \frac{\sum_i(X_i-\Bar{X_n})^2}{\sigma^2}=\frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2(n-1) & \\\\ \frac{\sqrt{n}(\Bar{X_n}-\mu)}{S_n} \sim t(n-1) & 
+        \end{array}\right.
+        \end{equation}
+        \underline{Recall}: 1.(d) i. $\rightarrow$ i.i.d. mean, and $\Bar{X_n} \perp S_n^2$} (indep.). 
+        \item {Suppose $\{X_i\}_{i=1}^m \sim^{i.i.d.}N(\mu_X, \sigma_X^2)$ and $\{Y_i\}_{i=1}^n \sim^{i.i.d.}N(\mu_Y, \sigma_Y^2)$, then:
+        $$ \frac{S_X^2/\sigma_X^2}{S_Y^2/\sigma_Y^2} \sim F(m-1,\ n-1) $$ Degrees of freedom: $k_X=m-1,\ k_Y=n-1$}\\
+    }
+\end{enumerate}
+}
+
+%Convergence
+\item {{\bf Convergence:} 
+\begin{enumerate}
+    \item {Markov Inequality: given a random variable $X$, $\forall m >0$, $$P(X\geq m) \leq \frac{E(X)}{m}$$
+    }
+    \item {{\bf Chebyshev Inequality:} given a random variable $Y \sim (E(Y),Var(Y))$, $\forall \varepsilon >0$, $$P(|Y-E(Y)| \geq \varepsilon) \leq \frac{Var(Y)}{\varepsilon^2}$$
+    }
+    \item {{\bf Convergence:} 
+    \begin{enumerate}
+        \item {Converge in Probability: 
+        \begin{equation}
+        \left \{
+        \begin{array}{lr} 
+        \lim\limits_{n\rightarrow\infty} P(|Y_n-c|<\varepsilon)=1 \Rightarrow Y_n \xrightarrow{p} c & \\\\ \lim\limits_{n\rightarrow\infty} P(|Y_n-Y|<\varepsilon)=1 \Rightarrow Y_n \xrightarrow{p} Y & 
+        \end{array}\right.
+        \end{equation}}
+        
+        \item {Converge in Distribution: 
+        \begin{equation}
+        \left \{
+        \begin{array}{lr} 
+        \lim\limits_{n\rightarrow\infty}F_n(y)=F_Y(y) \Rightarrow Y_n \xrightarrow{d} Y & \\\\ \lim\limits_{n\rightarrow\infty}M_{Y_n}(t)=M_Y(t) \Rightarrow Y_n \xrightarrow{d} Y & 
+        \end{array}\right.
+        \end{equation}}
+        
+        \item {Converge in Mean Square:  \begin{equation}
+        \left \{
+        \begin{array}{lr} 
+        E[(Y_n-c)^2]\rightarrow 0\ as\  n\rightarrow \infty \Rightarrow Y_n \xrightarrow{ms} c & \\\\ E[(Y_n-Y)^2]\rightarrow 0\ as\  n\rightarrow \infty \Rightarrow Y_n \xrightarrow{ms} Y & 
+        \end{array}\right.
+        \end{equation}
+        }
+    \end{enumerate}
+    }
+    \item {Relationship:  $$
+        \lim\limits_{n\rightarrow\infty} E(Y_n)=c,\ 
+        \lim\limits_{n\rightarrow\infty} Var(Y_n)=0
+        $$
+        $$ \Leftrightarrow Y_n \xrightarrow{ms} c \Rightarrow Y_n \xrightarrow{p} c$$ \\
+        \underline{Remarks}: The first half of cond. is an "iff", and the second half is an "if".
+        }
+    \item {{\bf WLLN} (Weak Law of Large Numbers){\bf :} given $\{X_i\}_{i=1}^n,\ Var(X_i)<\infty$. Let $\Bar{X_n}=\frac{\sum\limits_{i=1}^nX_i}{n}$, then: $$ \Bar{X_n} \xrightarrow{p} E(X_1)$$ \\
+    \underline{Remarks}: With a large scale of samples($n\rightarrow \infty$), the sample mean($\Bar{X_n}$) will be close to the expected value($=E(X_1)=\mu$).
+    
+    \begin{enumerate}
+        \item {k-th moments: \\given $E(X_1^r)<\infty$, then: $\frac{\sum_iX_i^r}{n} \xrightarrow{p} E(X_1^r)$ \\
+        given $E(X_1Y_1)<\infty$, then: $\frac{\sum_iX_iY_i}{n} \xrightarrow{p} E(X_1Y_1)$
+        }
+        \item {Application: Suppose $W_n \sim Binomial(n,\mu)$, let $Y_n=\frac{W_n}{n}$, then: $Y_n \xrightarrow{p} \mu$
+        }
+    \end{enumerate}
+    }
+    \item {{\bf CLT} (Central Limit Theorem) {\bf :} given $\{X_i\}_{i=1}^n,\ Var(X_i)<\infty,\ E(X_1)=\mu<\infty,\ Var(X_1)=\sigma^2<\infty$, then: $$ \frac{\Bar{X_n}-E(\Bar{X_n})}{\sqrt{Var(\Bar{X_n})}}= \frac{\Bar{X_n}-\mu}{\sqrt{\frac{\sigma^2}{n}}} \xrightarrow{d} N(0,1)$$
+    }
+    \item {Other Convergences: 
+    \begin{enumerate}
+        \item {{\bf CMT} (Continuous Mapping Theorem): $g(\cdot)\ conti.$, then: $g(X_n)\xrightarrow{p}g(X)$}
+        \item {$X_n \xrightarrow{p} X \Rightarrow X_n \xrightarrow{d} X$, $X_n \xrightarrow{d} c \Rightarrow X_n \xrightarrow{p} c$
+        \item {{\bf Slutsky's Theorem:} given $X_n \xrightarrow{d} X,\ Y_n \xrightarrow{p} c$, then: $$ [X_n+Y_n\ /\ X_nY_n\ /\ \frac{X_n}{Y_n}] \xrightarrow{d} [X+c\ /\ cX\ /\ \frac{X}{c},\ c \neq 0] $$
+        }
+        \item {The Delta Method}\\
+        }
+    \end{enumerate}
+    }
+\end{enumerate}
+}
+
+%Point estimate
+\item {{\bf Point Estimation:}
+\begin{enumerate}
+    \item {{\bf MME} (Method of Moments Estimators){\bf :} given pdf $f(x,\theta_1,\theta_2,\dots,\theta_k)$, solve: $$\frac{1}{n}\sum\limits_{i=1}^nX_i^j = m_j(\hat{\theta}_1,\hat{\theta}_2,\dots,\hat{\theta}_k)\xrightarrow{p} m_j(\theta_1,\theta_2,\dots,\theta_k),\ j=1,2,\dots,k $$ \underline{Remarks}: Sample's j-th moments $=$ Population's j-th moments(by WLLN). 
+    }
+    \item {{\bf MLE} (Maximum Likelihood Estimator){\bf :}\\ Likelihood function $$\mathcal{L}(\theta)=\prod\limits_if(x_i,\theta),\ \theta=\mathop{\arg\max}_{\theta\in\Theta}\mathcal{L}(\theta)  $$ $\rightarrow$ Find MLE by solving FOC: $$\frac{\partial\mathcal{L}(\theta)}{\partial\theta}=0\ or\  \frac{\partial\ln\mathcal{L}(\theta)}{\partial\theta}=0$$
+    \begin{enumerate}
+        \item {{\bf Unbiased:} \\ {\bf Unbiased Estimator:} $\hat{\theta}$, we expect that: $$ E(\hat{\theta})=\theta $$ If not, then there exists {\bf bias:} $B(\theta)=E(\hat{\theta})-\theta$ \\\\
+        Suppose $\{X_i\}_{i=1}^n \sim^{i.i.d.}N(\mu, \sigma^2)$, then:
+        \begin{equation}
+        \left \{
+        \begin{array}{lr} 
+        \Bar{X} = \frac{\sum\limits_{i=1}^n X_i}{n} \Rightarrow E(\Bar{X})=\mu\ (unbiased) & \\\\ S^2=\frac{\sum\limits_{i=1}^n (X_i-\Bar{X})^2}{n-1} \Rightarrow E(S^2)=\sigma^2\ (unbiased) & \\\\ \hat{\sigma}^2=\frac{\sum\limits_{i=1}^n (X_i-\Bar{X})^2}{n} \Rightarrow E(\hat{\sigma}^2)=\frac{n-1}{n}\sigma^2\ (biased) &
+        \end{array}\right.
+        \end{equation}
+        \underline{Remarks}: \\The difference between $S^2$ and $\hat{\sigma}^2$ is the \underline{denominator}($n-1$ vs $n$). Apparently, $\Bar{X}$ and $S^2$ are unbiased estimators of $\mu$ and $\sigma^2$, respectively, while $\hat{\sigma}^2$ is a biased one of $\sigma^2$, with its $B(\hat{\sigma}^2)=-\frac{1}{n}\sigma^2$.
+        \\\\
+        $\rightarrow$ {\bf MVUE} (Minimum Variance Unbiased Estimator): $\hat{\theta}$ is MVUE of $\theta$ $\Leftrightarrow E(\hat{\theta})=\theta,\ \forall\theta$ \\
+        $\Leftrightarrow Var(\hat{\theta})\leq Var(\hat{\theta}^*),\ \forall \hat{\theta}^*,\ E(\hat{\theta}^*)=\theta$
+        }
+        \\
+        \item {{\bf Efficient:} \\{\bf MSE} (Mean Squared Error){\bf :} $$ MSE(\hat{\theta})\equiv E[(\hat{\theta}-\theta)^2] \Rightarrow MSE(\hat{\theta_n})=Var(\hat{\theta_n})+ (B(\theta))^2 $$ 
+        \underline{Remarks}: An estimator that has a smaller $MSE$ is the more efficient one, whether it is unbiased. Furthermore, from (i)'s example, we know  $MSE(S^2)=\frac{2\sigma^4}{n-1}+0=\frac{2\sigma^4}{n-1}$ and $MSE(\hat{\sigma}^2)=\frac{2(n-1)\sigma^4}{n^2}+(-\frac{\sigma^2}{n})^2 = \frac{(2n-1)\sigma^4}{n^2}$ $$\Rightarrow MSE(\hat{\sigma}^2)<MSE(S^2)$$ Thus, the biased $\hat{\sigma}^2$ is a more efficient estimator than the unbiased $S^2$.
+        }\\
+        \item {{\bf Consistent:} $\hat{\theta}_n$ is a consistent estimator of $\theta$ when: $$ \hat{\theta}_n \xrightarrow{p} \theta $$
+        \underline{Remarks}: A subscript $n$ reminds us that this feature is related to the sample size(similar to WLLN). Again, from (i)'s example, we eventually know $\Bar{X}_n$ is a consistent estimator of $\mu$, and both $S_n^2$ and $\hat{\sigma}_n^2$ are consistent estimators of $\sigma^2$(proved by WLLN and CMT).\\\\
+        {\bf MSE Consistent:} $\hat{\theta}_n$ is a MSE consistent estimator of $\theta$ when: $$ \hat{\theta}_n \xrightarrow{ms} \theta $$ Also, consider $$ \hat{\theta}_n \xrightarrow{ms} \theta \Rightarrow \hat{\theta}_n \xrightarrow{p} \theta\ $$\\
+        \underline{Remarks}: MSE consistent is based on the idea of mean square convergence. From 6.(d) $Relationship$ $\rightarrow$ If $\hat{\theta}_n$ is MSE consistent, then it is a consistent estimator. Thus, to evaluate whether $\hat{\theta}_n$ is a consistent estimator, we can simply check if $\{\lim\limits_{n\rightarrow\infty}E(\hat{\theta}_n)=\theta,\ 
+        \lim\limits_{n\rightarrow\infty} Var(\hat{\theta}_n)=0\}$ were satisfied. \\\\
+        {\bf Asymptotically Unbiased:} $\hat{\theta}_n$ is asymptotically unbiased when: $$ \lim\limits_{n\rightarrow\infty}E(\hat{\theta}_n)=\theta $$ And, $$ \lim\limits_{n\rightarrow\infty}E(\hat{\theta}_n)= \lim\limits_{n\rightarrow\infty}\theta=\theta$$ \underline{Remarks}: If $\hat{\theta}_n$ is unbiased, then it is also asymptotically unbiased.
+        }
+    \end{enumerate}
+    }
+    
+\end{enumerate}
+}
+
+
+
+\end{enumerate}
+\end{document}
