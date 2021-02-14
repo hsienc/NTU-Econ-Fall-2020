@@ -1,4 +1,4 @@
-# Econ Studynotes @HsienChen Chu
+# Econ Studynotes @Hsienchen Chu
 > Either study or on my way to study. 
 ### Greetings!
 
