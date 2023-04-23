@@ -2,7 +2,7 @@
 > Either study or on my way to study. 
 ### Greetings!
 
-On this Github repo I upload pieces of study notes and materials of Economics topics that I have read and learned throughout my academic career.  \
+On this Github repo I upload pieces of study notes and materials of Economics topics that I have read and learned at National Taiwan University (Fall 2020).  \
 Hope you all browse through them joyfully and find them useful! :)
 
 - [x] Stay tuned on [NEW RELEASES](https://github.com/hsienc/Econ/releases) ! 
