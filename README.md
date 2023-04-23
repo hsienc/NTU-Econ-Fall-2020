@@ -1,4 +1,4 @@
-# Econ Studynotes @Hsienchen Chu
+# NTU Econ Studynotes @Hsienchen Chu
 > Either study or on my way to study. 
 ### Greetings!
 
